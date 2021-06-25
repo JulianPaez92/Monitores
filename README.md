@@ -28,7 +28,7 @@ Este monitor controla el acceso con exclusión mútua al recurso e implementa la
 
 ## Ejercicios
 
-1. Implementar los ejemplos anteriores utilizando python (se puede implementar utlizando clases y las primitivas threading.Rlock y threading.Condition).
+1. Implementar los monitores de los ejemplos 1 y 2 (Contador y Buffer) codificando en **python** (se puede implementar utlizando clases y las primitivas threading.Rlock y threading.Condition).
 
 2. Modificar el **monitor** del ejemplo 1 (contador) de modo que solo dos hilos puedan incrementar el contador a la vez, debiendo los demás hilos esperar a que uno de estos termine para tomar su lugar.
 

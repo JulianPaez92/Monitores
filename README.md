@@ -1,6 +1,6 @@
-#Monitores
+# Monitores
 
-##Ejemplo 1 - Contador Concurrente
+## Ejemplo 1 - Contador Concurrente
 [EjemploContador/ContadorMonitor](https://github.com/unahur-progra-concu-1-2021/Monitores/tree/master/EjemploContador/ContadorMonitor "EjemploContador/ContadorMonitor")
 
 Este ejemplo implementa un monitor que controla un contador concurrente que es incrementado por varios hilos.
@@ -12,7 +12,7 @@ Es un monitor simple, que solo controla el acceso en exclusión mútua al recurs
 
 
 
-##Ejemplo 2 - Buffer Cíclico (Productor/Consumidor)
+## Ejemplo 2 - Buffer Cíclico (Productor/Consumidor)
 
 [Ejemplo/Buffer](https://github.com/unahur-progra-concu-1-2021/Monitores/tree/master/EjemploBuffer/buffer "Ejemplo/Buffer")
 

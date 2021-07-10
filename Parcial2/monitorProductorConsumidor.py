@@ -9,14 +9,14 @@ class MonitorProductorConsumidor():
     entero = 0  #Variable a producir/consumir
     consumos = 1 #Cantidad de lecturas por parte del consumidor
     lock = threading.RLock()
-    leido = threading.Condition(lock)  # informa el estado del entero para ser leido
+    estado = threading.Condition(lock)  # informa el estado del entero para ser consumido/producido
 
 
     def productor(self):
         self.lock.acquire()
         try:
             while(self.consumos == 0): # mientras el entero no sea consumido espera para producir
-                self.leido.wait()
+                self.estado.wait()
             self.entero = random.randint(0, 100)
             logging.info(f'{threading.current_thread().name} asignó el valor {self.entero} a la variable')
             self.consumos = 0  # torna el valor a cero para que pueda ser consumido
@@ -28,10 +28,10 @@ class MonitorProductorConsumidor():
         self.lock.acquire()
         try:
             while(self.consumos == 3): #despues de 3 lecturas el entero se deja de consumir
-                self.leido.wait()
+                self.estado.wait()
             logging.info(f'{threading.current_thread().name} consumió el valor {self.entero}')
             self.consumos += 1  #el entero es consumido 1 vez
-            self.leido.notifyAll()
+            self.estado.notifyAll() #despierta a todos los productores en estado wait() para comenzar a producir
         finally:
             self.lock.release()
 
